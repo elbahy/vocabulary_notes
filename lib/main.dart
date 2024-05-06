@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:vocabulary_notes/constants/hive_constants.dart';
+import 'package:vocabulary_notes/core/constants/hive_constants.dart';
 import 'package:vocabulary_notes/data/model/word_type_adapter.dart';
 
 void main() async {

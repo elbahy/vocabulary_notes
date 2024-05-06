@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:vocabulary_notes/constants/hive_constants.dart';
+import 'package:vocabulary_notes/core/constants/hive_constants.dart';
 import 'package:vocabulary_notes/data/model/word_model.dart';
 import 'package:vocabulary_notes/presentation/cubit/read_data_cubit/read_data_state.dart';
 
