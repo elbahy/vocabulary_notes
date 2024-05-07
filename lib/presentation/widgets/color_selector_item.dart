@@ -7,18 +7,18 @@ class ColorSelectorItem extends StatelessWidget {
 
   final int selectedcolor;
   static final List<int> colorsList = [
-    0xff0000FF,
-    0xffADD8E6, // الأزرق الفاتح
-    0xff90EE90, // الأخضر الفاتح
-    0xff008000, // الأخضر الغامق
-    0xffFF0000, // الأحمر
-    0xffFFA500, // البرتقالي
-    0xff000000, // الأسود
-    0xffFFFF00, // الأصفر
-    0xffFFC0CB, // الوردي
-    0xff800080, // الأرجواني
-    // الأزرق الغامق
+    0xff00008B, // أزرق داكن
+    0xff556B2F, // أخضر زيتوني
+    0xff8B4513, // بني داكن
+    0xff2F4F4F, // رمادي داكن
+    0xff9400D3, // بنفسجي داكن
+    0xff708090, // رصاصي
+    0xff00CED1, // تركواز داكن
+    0xff800000, // بورجوندي
+    0xff008080, // بترولي
+    0xffFF8C00, // كحلي
   ];
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

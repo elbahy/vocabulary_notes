@@ -8,7 +8,7 @@ class WriteDataCubit extends Cubit<WriteDataState> {
   WriteDataCubit() : super(WriteDataInitial());
 
   String text = "";
-  int color = 0xff0000FF;
+  int color = 0xff00008B;
   bool isArabic = true;
   static get(context) => BlocProvider.of<WriteDataCubit>(context);
   final Box box = Hive.box(HiveConstants.wordsBox);

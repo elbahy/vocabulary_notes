@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vocabulary_notes/presentation/cubit/write_data_cubit/write_data_cubit.dart';
 import 'package:vocabulary_notes/presentation/cubit/write_data_cubit/write_data_state.dart';
+import 'package:vocabulary_notes/presentation/widgets/add_word_button_widget.dart';
+import 'package:vocabulary_notes/presentation/widgets/add_word_form_widget.dart';
 import 'package:vocabulary_notes/presentation/widgets/color_selector_item.dart';
 import 'package:vocabulary_notes/presentation/widgets/language_selector_item.dart';
 
@@ -17,7 +19,7 @@ class AddWordDialog extends StatelessWidget {
         builder: (context, state) {
           return AnimatedContainer(
             duration: const Duration(milliseconds: 700),
-            height: 300,
+            height: 320,
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
               color: Color(WriteDataCubit.get(context).color),
@@ -27,7 +29,7 @@ class AddWordDialog extends StatelessWidget {
               children: [
                 LanguageSelector(isArabicSelected: WriteDataCubit.get(context).isArabic),
                 SizedBox(
-                  height: 120,
+                  height: 100,
                   child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
@@ -40,6 +42,8 @@ class AddWordDialog extends StatelessWidget {
                       },
                       itemCount: ColorSelectorItem.colorsList.length),
                 ),
+                const AddWordFormWidget(),
+                Align(alignment: Alignment.centerRight, child: AddWordButtonWidget(colorCode: WriteDataCubit.get(context).color)),
               ],
             ),
           );
