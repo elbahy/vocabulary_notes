@@ -5,6 +5,7 @@ import 'package:vocabulary_notes/core/styles/colors.dart';
 class ThemeManager {
   static ThemeData AppTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.black,
+    fontFamily: 'PoetsenOne',
     appBarTheme: const AppBarTheme(
         backgroundColor: AppColors.black,
         elevation: 0,

@@ -3,26 +3,61 @@ import 'package:vocabulary_notes/core/styles/colors.dart';
 import 'package:vocabulary_notes/presentation/cubit/write_data_cubit/write_data_cubit.dart';
 
 class AddWordFormWidget extends StatelessWidget {
-  const AddWordFormWidget({
-    super.key,
-  });
+  AddWordFormWidget({
+    Key? key,
+    required this.formKey,
+  }) : super(key: key);
+
+  final GlobalKey<FormState> formKey;
+
+  final arabicRegex = RegExp(r'^[\u0600-\u06FF\s]+$');
+  final englishRegex = RegExp(r'^[a-zA-Z\s]+$');
 
   @override
   Widget build(BuildContext context) {
     return Form(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        TextFormField(
-          decoration: InputDecoration(
-            enabledBorder: _BorderStyle(),
-            focusedBorder: _BorderStyle(),
+      key: formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          TextFormField(
+            style: const TextStyle(color: AppColors.white),
+            decoration: InputDecoration(
+              enabledBorder: _borderStyle(),
+              focusedBorder: _borderStyle(),
+              border: _borderStyle(),
+              labelText: 'New Word',
+              labelStyle: const TextStyle(
+                color: AppColors.white,
+                fontSize: 17,
+              ),
+            ),
+            onChanged: (value) {
+              WriteDataCubit.get(context).changeText(value);
+            },
+            validator: (value) {
+              if (WriteDataCubit.get(context).isArabic) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a valid Arabic word';
+                } else if (!arabicRegex.hasMatch(value)) {
+                  return 'Please enter a valid Arabic word';
+                }
+              } else {
+                if (!(value != null && englishRegex.hasMatch(value))) {
+                  return 'Please enter a valid English word';
+                }
+              }
+              return null;
+            },
           ),
-        ),
-        const SizedBox(height: 12),
-      ],
-    ));
+          const SizedBox(height: 12),
+        ],
+      ),
+    );
   }
 
-  OutlineInputBorder _BorderStyle() => OutlineInputBorder(borderRadius: BorderRadius.circular(20), borderSide: const BorderSide(color: AppColors.white, width: 2));
+  OutlineInputBorder _borderStyle() => OutlineInputBorder(
+        borderRadius: BorderRadius.circular(20),
+        borderSide: const BorderSide(color: AppColors.white, width: 2),
+      );
 }
