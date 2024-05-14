@@ -37,7 +37,7 @@ class ReadDataCubit extends Cubit<ReadDataState> {
       words = sortWords(words);
       emit(ReadDataSuccess(words: words));
     } catch (e) {
-      emit(ReadDataFailure(message: e.toString()));
+      emit(ReadDataFailure(message: 'We Have problem to load words, please try again'));
     }
   }
 
