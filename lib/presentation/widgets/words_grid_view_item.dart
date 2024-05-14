@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vocabulary_notes/core/styles/colors.dart';
 import 'package:vocabulary_notes/data/model/word_model.dart';
+import 'package:vocabulary_notes/presentation/cubit/read_data_cubit/read_data_cubit.dart';
 import 'package:vocabulary_notes/presentation/views/word_details_view.dart';
 
 class WordsGridViewItem extends StatelessWidget {
@@ -15,7 +16,13 @@ class WordsGridViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => WordDetailsView(word: words[index]))),
+      onTap: () => Navigator.of(context)
+          .push(
+            MaterialPageRoute(
+              builder: (context) => WordDetailsView(word: words[index]),
+            ),
+          )
+          .then((value) => ReadDataCubit.get(context).getWords()),
       child: Container(
         decoration: BoxDecoration(
           color: Color(words[index].color),
