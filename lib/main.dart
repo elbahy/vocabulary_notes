@@ -13,6 +13,7 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(WordTypeAdapter());
   await Hive.openBox(HiveConstants.wordsBox);
+
   runApp(const VocabularyNotesApp());
 }
 
@@ -24,7 +25,7 @@ class VocabularyNotesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => ReadDataCubit()),
+        BlocProvider(create: (context) => ReadDataCubit()..getWords()),
         BlocProvider(create: (context) => WriteDataCubit()),
       ],
       child: MaterialApp(

@@ -9,7 +9,7 @@ class ReadDataCubit extends Cubit<ReadDataState> {
 
   LangugeFilter langugeFilter = LangugeFilter.all;
   SortedBy sortedBy = SortedBy.time;
-  Sortedtype sortedtype = Sortedtype.ascending;
+  Sortedtype sortedtype = Sortedtype.descending;
 
   static ReadDataCubit get(context) => BlocProvider.of<ReadDataCubit>(context);
   final _box = Hive.box(HiveConstants.wordsBox);
