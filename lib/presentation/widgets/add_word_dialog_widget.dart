@@ -33,6 +33,7 @@ class AddWordDialog extends StatelessWidget {
             decoration: BoxDecoration(
               color: Color(WriteDataCubit.get(context).color),
               borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.white, width: 1),
             ),
             child: SingleChildScrollView(
               child: Column(
