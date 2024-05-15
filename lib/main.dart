@@ -32,7 +32,7 @@ class VocabularyNotesApp extends StatelessWidget {
         title: 'Vocabulary Notes',
         debugShowCheckedModeBanner: false,
         home: const HomeView(),
-        theme: ThemeManager.AppTheme,
+        theme: ThemeManager.appTheme,
       ),
     );
   }

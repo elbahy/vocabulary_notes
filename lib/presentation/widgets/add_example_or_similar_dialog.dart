@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vocabulary_notes/presentation/cubit/read_data_cubit/read_data_cubit.dart';
 import 'package:vocabulary_notes/presentation/cubit/write_data_cubit/write_data_cubit.dart';
 import 'package:vocabulary_notes/presentation/cubit/write_data_cubit/write_data_state.dart';
 import 'package:vocabulary_notes/presentation/widgets/add_word_button_widget.dart';
@@ -48,11 +49,12 @@ class AddExampleOrSimilarWordDialog extends StatelessWidget {
                     colorCode: WriteDataCubit.get(context).color,
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        isSimilarWord
-                            ? WriteDataCubit.get(context).addSimilarWords(wordId)
-                            : isExample
-                                ? WriteDataCubit.get(context).addExample(wordId)
-                                : null;
+                        if (isSimilarWord) {
+                          WriteDataCubit.get(context).addSimilarWords(wordId);
+                        } else if (isExample) {
+                          WriteDataCubit.get(context).addExample(wordId);
+                        }
+                        ReadDataCubit.get(context).getWords();
                       }
                     },
                   ),

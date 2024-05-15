@@ -22,7 +22,9 @@ class WordsGridViewItem extends StatelessWidget {
               builder: (context) => WordDetailsView(word: words[index]),
             ),
           )
-          .then((value) => ReadDataCubit.get(context).getWords()),
+          .then(
+            (value) => Future.delayed(const Duration(seconds: 1)).then((value) => ReadDataCubit.get(context).getWords()),
+          ),
       child: Container(
         decoration: BoxDecoration(
           color: Color(words[index].color),

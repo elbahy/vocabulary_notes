@@ -65,11 +65,11 @@ class WriteDataCubit extends Cubit<WriteDataState> {
     }
   }
 
-  void removeSimilarWords(int id) {
+  void removeSimilarWords(int id, bool isArabic, String similarWord) {
     emit(WriteDataLoading());
     try {
       List<WordModel> words = _getWordsFromBox();
-      words[id] = words[id].removeSimilarWord(text, isArabic);
+      words[id] = words[id].removeSimilarWord(similarWord, isArabic);
       box.put(HiveConstants.wordsList, words);
       emit(WriteDataSuccess());
     } catch (e) {
@@ -89,11 +89,11 @@ class WriteDataCubit extends Cubit<WriteDataState> {
     }
   }
 
-  void removeExample(int id) {
+  void removeExample(int id, bool isArabic, String example) {
     emit(WriteDataLoading());
     try {
       List<WordModel> words = _getWordsFromBox();
-      words[id] = words[id].removeExample(text, isArabic);
+      words[id] = words[id].removeExample(example, isArabic);
       box.put(HiveConstants.wordsList, words);
       emit(WriteDataSuccess());
     } catch (e) {

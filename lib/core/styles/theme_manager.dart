@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:vocabulary_notes/core/styles/colors.dart';
 
 class ThemeManager {
-  static ThemeData AppTheme = ThemeData(
+  static ThemeData appTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.black,
     fontFamily: 'PoetsenOne',
     appBarTheme: const AppBarTheme(

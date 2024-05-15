@@ -20,6 +20,6 @@ class AddWordButtonWidget extends StatelessWidget {
           foregroundColor: Color(colorCode),
           fixedSize: const Size(120, 50),
         ),
-        child: const Text('Add Word'));
+        child: const Text('Add'));
   }
 }
