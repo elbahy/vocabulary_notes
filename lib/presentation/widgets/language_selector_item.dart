@@ -31,7 +31,7 @@ class LanguageSelector extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(color: AppColors.white, width: 2),
-          color: isArabicSelected == isArabicItem ? AppColors.white : Color(WriteDataCubit.get(context).color),
+          color: isArabicSelected == isArabicItem ? AppColors.white : AppColors.transparent,
         ),
         child: Center(
             child: Text(

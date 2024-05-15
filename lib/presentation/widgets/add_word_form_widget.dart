@@ -3,12 +3,11 @@ import 'package:vocabulary_notes/core/styles/colors.dart';
 import 'package:vocabulary_notes/presentation/cubit/write_data_cubit/write_data_cubit.dart';
 
 class AddWordFormWidget extends StatelessWidget {
-  AddWordFormWidget({
-    Key? key,
-    required this.formKey,
-  }) : super(key: key);
+  AddWordFormWidget({Key? key, required this.formKey, this.isExample = false, this.isSimilarWord = false}) : super(key: key);
 
   final GlobalKey<FormState> formKey;
+  final bool isExample;
+  final bool isSimilarWord;
 
   final arabicRegex = RegExp(r'^[\u0600-\u06FF\s]+$');
   final englishRegex = RegExp(r'^[a-zA-Z\s]+$');
@@ -26,7 +25,11 @@ class AddWordFormWidget extends StatelessWidget {
               enabledBorder: _borderStyle(),
               focusedBorder: _borderStyle(),
               border: _borderStyle(),
-              labelText: 'New Word',
+              labelText: isExample
+                  ? 'New Example'
+                  : isSimilarWord
+                      ? 'New Similar Word'
+                      : 'New Word',
               labelStyle: const TextStyle(
                 color: AppColors.white,
                 fontSize: 17,
